@@ -1,8 +1,3 @@
-if (currentBuild.getBuildCauses().toString().contains('BranchIndexingCause')) {
-  print "INFO: Build skipped due to trigger being Branch Indexing"
-  return
-}
-
 pipeline {
   agent any
   stages {
@@ -12,13 +7,13 @@ pipeline {
       }
     }
     stage('Deploy for production') {
-        when {
-            branch 'production'
-        }
-        steps {
-            input message: 'Finished using the web site? (Click "Proceed" to continue)'
-            echo 'Production!!'
-        }
+      when {
+        branch 'production'
+      }
+      steps {
+        input message: 'Finished using the web site? (Click "Proceed" to continue)'
+          echo 'Production!!'
+      }
     }
   }
 }
