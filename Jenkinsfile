@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent {
+    label 'amazon-linux'
+  }
   stages {
     stage('Build') {
       steps {
@@ -13,7 +15,7 @@ date'''
         branch 'production'
       }
       steps {
-        input 'Finished using the web site? (Click "Proceed" to continue)'
+        sleep(time: 10, unit: 'MINUTES')
         echo 'Production!!'
       }
     }
