@@ -1,22 +1,24 @@
 pipeline {
   agent any
-  triggers {
-    githubPush()
-  }
   stages {
     stage('Build') {
       steps {
         sh 'uname -a'
       }
     }
+
     stage('Deploy for production') {
       when {
         branch 'production'
       }
       steps {
-        input message: 'Finished using the web site? (Click "Proceed" to continue)'
-          echo 'Production!!'
+        sleep 10
+        echo 'Production!!'
       }
     }
+
+  }
+  triggers {
+    githubPush()
   }
 }
