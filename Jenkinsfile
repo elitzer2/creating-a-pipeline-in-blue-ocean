@@ -12,7 +12,7 @@ pipeline {
         branch 'production'
       }
       steps {
-        sleep 10
+        sleep(time: 10, unit: 'MINUTES')
         echo 'Production!!'
       }
     }
