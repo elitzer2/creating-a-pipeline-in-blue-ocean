@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''uname -a
-exit 1'''
+        sh 'uname -a'
       }
     }
 
